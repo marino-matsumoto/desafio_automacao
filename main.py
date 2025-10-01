@@ -16,9 +16,4 @@ navegador.get(url)
 # Tempo de espera para carregar a página.
 navegador.implicitly_wait(1.0)
 
-# Localiza a barra de pesquisa e escrever.
-#navegador.find_element("id", "cb1-edit").send_keys("Memoria RAM")
-#navegador.find_element("class name", "nav-icon-search").click()
-#navegador.find_element("title", "Memória RAM ValueRAM Verde 4GB 1 Kingston KVR1333D3S9/4G 1.5V Imagen - 1/4").click()
-
 navegador.quit()
