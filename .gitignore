@@ -1,7 +1,4 @@
-produto.txt
-produtos.csv
 .automacao
-_pycache_-313.pyc
-_pycache_
+_pycache_/
 teste.py
-marketplace.csv
+*.csv
