@@ -3,19 +3,20 @@ from selenium.webdriver.common.by import By
 from datetime import datetime
 import csv
 import argparse
+from pathlib import Path
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-i', '--item', required=True)
 
-parser.add_argument('-o', '--out', '--output', default='marketplace.csv')
-parser.add_argument('-m', '--marketplace', type=str, choices=['amazon', 'mercadolivre'],  required=True, help="O marketplace a ser utilizado")
+parser.add_argument('-i', '--item', required=True, help="Item que vai ser pesquisado.")
+parser.add_argument('-o', '--out', '--output', default='marketplace.csv', help="Arquivo csv que vai baixar.")
+parser.add_argument('-s', '--store', type=str, choices=['amazon', 'mercadolivre'],  required=True, help="O marketplace a ser utilizado.")
 
 args = parser.parse_args()
 
 if not args.out.endswith(".csv"):
     raise Exception("Arquivo obrigatoriamente precisa ser csv")
 
-if args.marketplace == 'amazon':
+if args.store == 'amazon':
     # Iniciando navegador Firefox.
     navegador = webdriver.Firefox()
 
@@ -73,18 +74,18 @@ if args.marketplace == 'amazon':
     data = datetime.today().strftime("%d-%m-%Y")
 
     with open(args.out, "a", newline="") as file:
-        campos_head = ['date','url','title','description','image_url','seller']
+        campos_head = ['date','url','title','description','image_url','seller', 'marketplace']
         writer = csv.DictWriter(file, fieldnames=campos_head, delimiter=';')
     
         if file.tell() == 0:
             writer.writeheader()
-            writer.writerow({'date':data,'url':navegador.current_url,'title':nome_produto,'description':descricao_produto,'image_url':imagem_produto,'seller':vendedor_produto})
+            writer.writerow({'date':data,'url':navegador.current_url,'title':nome_produto,'description':descricao_produto,'image_url':imagem_produto,'seller':vendedor_produto, 'marketplace':url})
         else:
-            writer.writerow({'date':data,'url':navegador.current_url,'title':nome_produto,'description':descricao_produto,'image_url':imagem_produto,'seller':vendedor_produto})
+            writer.writerow({'date':data,'url':navegador.current_url,'title':nome_produto,'description':descricao_produto,'image_url':imagem_produto,'seller':vendedor_produto, 'marketplace':url})
     print(args.out)
     navegador.quit()
 
-elif args.marketplace == 'mercadolivre':
+elif args.store == 'mercadolivre':
     # Iniciando navegador Firefox.
     navegador = webdriver.Firefox()
 
@@ -93,7 +94,6 @@ elif args.marketplace == 'mercadolivre':
 
     # link para encurtar
     url = "https://www.mercadolivre.com.br/"
-
 
     # Acessar a página do marketplace.
     navegador.get(url)
@@ -110,7 +110,7 @@ elif args.marketplace == 'mercadolivre':
     el.click()
 
     # Tempo de espera de 1 segundo
-    avegador.implicitly_wait(1.0)
+    navegador.implicitly_wait(1.0)
     # Primeiro item
     navegador.find_element(By.CLASS_NAME, 'ui-search-result__wrapper').click()
 
@@ -142,14 +142,14 @@ elif args.marketplace == 'mercadolivre':
     data = datetime.today().strftime("%d-%m-%Y")
 
     with open(args.out, "a", newline="") as file:
-        campos_head = ['date','url','title','description','image_url','seller']
+        campos_head = ['date','url','title','description','image_url','seller', 'marketplace']
         writer = csv.DictWriter(file, fieldnames=campos_head, delimiter=';')
     
         if file.tell() == 0:
             writer.writeheader()
-            writer.writerow({'date':data,'url':navegador.current_url,'title':nome_produto,'description':descricao_produto,'image_url':imagem_produto,'seller':vendedor_produto})
+            writer.writerow({'date':data,'url':navegador.current_url,'title':nome_produto,'description':descricao_produto,'image_url':imagem_produto,'seller':vendedor_produto, 'marketplace':url})
         else:
-            writer.writerow({'date':data,'url':navegador.current_url,'title':nome_produto,'description':descricao_produto,'image_url':imagem_produto,'seller':vendedor_produto})
+            writer.writerow({'date':data,'url':navegador.current_url,'title':nome_produto,'description':descricao_produto,'image_url':imagem_produto,'seller':vendedor_produto, 'marketplace':url})
     print(args.out)
     navegador.quit()
 else:
