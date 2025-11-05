@@ -1,0 +1,50 @@
+[project]
+name = "automacao"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "marino",email = "marinoxmatsumoto@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13,<4.0"
+dependencies = [
+    "selenium (>=4.38.0,<5.0.0)",
+]
+
+[project.scripts]
+automacao = "automacao:cli"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "towncrier (>=25.8.0,<26.0.0)"
+]
+
+[tool.towncrier]
+directory = "changelogs.d"
+filename = "CHANGELOG.md"
+start_string = "<!-- towncrier release notes start -->\n"
+underlines = ["", "", ""]
+title_format = "## [{version}](https://github.com/marino-matsumoto/desafio_automacao/tree/{version}) - {project_date}"
+issue_format = "[#{issue}](https://github.com/marino-matsumoto/desafio_automacao/issues/{issue})"
+
+[[tool.towncrier.type]]
+name = "Segurança"
+
+[[tool.towncrier.type]]
+name = "Remoção"
+
+[[tool.towncrier.type]]
+name = "Depreciado"
+
+[[tool.towncrier.type]]
+name = "Adicionado"
+
+[[tool.towncrier.type]]
+name = "Alterado"
+
+[[tool.towncrier.type]]
+name = "Corrigido"

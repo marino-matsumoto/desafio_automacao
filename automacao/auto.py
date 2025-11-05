@@ -3,7 +3,6 @@ from selenium.webdriver.common.by import By
 from datetime import datetime
 import csv
 import argparse
-from pathlib import Path
 
 parser = argparse.ArgumentParser()
 
