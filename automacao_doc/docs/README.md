@@ -1,0 +1,1 @@
+Este projeto tem como objetivo desenvolver um software para automação da coleta de preços de produtos nos marketplaces Mercado Libre e Amazon BR. A iniciativa visa não apenas a construção de uma ferramenta útil, mas também o aprendizado de habilidades de desenvolvimento de software e a preparação para o mercado de TI.

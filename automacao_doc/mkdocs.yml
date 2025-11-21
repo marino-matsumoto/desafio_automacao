@@ -1,0 +1,5 @@
+site_name: Automação
+
+nav:
+  - Home: index.md
+  - README: README
