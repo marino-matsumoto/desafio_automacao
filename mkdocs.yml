@@ -2,4 +2,5 @@ site_name: Automação
 
 nav:
   - Home: index.md
-  - README: README
+  - README: README.md
+  - Changelog: CHANGELOG.md
