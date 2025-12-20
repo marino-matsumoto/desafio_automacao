@@ -1,3 +1,8 @@
+## [0.1.0](https://github.com/marino-matsumoto/desafio_automacao/tree/0.1.0) - 2025-12-20
+
+No significant changes.
+
+
 ## [0.1.0](https://github.com/marino-matsumoto/desafio_automacao/tree/0.1.0) - 2025-11-11
 
 ### Adicionado
