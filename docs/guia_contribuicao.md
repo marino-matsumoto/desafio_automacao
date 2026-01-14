@@ -54,7 +54,7 @@ poetry run towncrier create
 Commit:
 
 ```bash
-git add <nome do arquivo que mudou>
+git add <nome do arquivo que mudou> changelogs.d/<Fragmentos>
 ```
 
 ```bash
