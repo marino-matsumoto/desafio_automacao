@@ -37,4 +37,3 @@ pip install git+https://github.com/marino-matsumoto/desafio_automacao
     docs/
         index.md  # The documentation homepage.
         ...       # Other markdown pages, images and other files.
-```
