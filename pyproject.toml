@@ -51,3 +51,9 @@ name = "Alterado"
 
 [[tool.towncrier.type]]
 name = "Corrigido"
+
+[[tool.towncrier.type]]
+name = "Documentação"
+
+[[tool.towncrier.type]]
+name = "Interno"
