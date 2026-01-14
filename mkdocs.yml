@@ -3,3 +3,4 @@ site_name: Automação
 nav:
   - Home: index.md
   - Changelog: CHANGELOG.md
+  - Guia de Contribuição: guia_contribuicao.md
