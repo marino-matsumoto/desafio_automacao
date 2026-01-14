@@ -61,6 +61,10 @@ git add <nome do arquivo que mudou>
 git commit -m "Sua descrição"
 ```
 
+```bash
+git push
+```
+
 ## Como gerar a release
 
 1. Alterar a versão do pyproject.toml
